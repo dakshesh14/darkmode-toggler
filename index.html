@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggler</title>
+    <link rel="stylesheet" href="fontsawesome/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --background: #ffffff;
+            --text: #000000;
+        }
+
+        .dark-mode {
+            --text: #ffffff;
+            --background: #000000;
+        }
+
+        body {
+            background-color: var(--background);
+            font-family: Poppins, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: all 0.5s;
+            transition-property: color background-color;
+            height: 100vh;
+            color: var(--text);
+            text-align: center;
+        }
+
+
+        .toggler {
+            background: none;
+            outline: none;
+            border: none;
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            background-color: #2a2929;
+            margin-top: 1rem;
+        }
+
+        .fa-moon {
+            visibility: unset;
+            color: #ffffff;
+
+        }
+
+        .fa-lightbulb {
+            visibility: hidden;
+            color: #ffffff;
+
+        }
+
+        body.dark-mode .fa-moon {
+            visibility: hidden;
+        }
+
+        body.dark-mode .fa-lightbulb {
+            visibility: unset;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <h1>Hello There guys</h1>
+        <p>#NOTE: Your mode is saved!</p>
+    </div>
+    <div class="theme-toggle-btn">
+        <button id="btn" type="button" class="toggler">
+            <i class="fas fa-2x fa-moon"></i>
+            <i class="fas fa-2x fa-lightbulb"></i>
+        </button>
+    </div>
+    <!-- <button id="btn" type="button">Click To toggle</button> -->
+    <script>
+        let theme = localStorage.getItem('theme')
+        if (theme) {
+            document.querySelector('body').classList.add(theme)
+        }
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', () => {
+            document.querySelector('body').classList.toggle('dark-mode');
+            if (theme === 'dark-mode') {
+                localStorage.setItem('theme', 'light-mode')
+            }
+            else {
+                localStorage.setItem('theme', 'dark-mode')
+            }
+        })
+    </script>
+</body>
+
+</html>

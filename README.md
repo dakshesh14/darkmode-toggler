@@ -6,3 +6,6 @@ This is darkmode\light mode toggler webapp idea. This project shows how we can e
 - This is very easy to implement and use.
 - It is also expandable i.e. can be used in no matter what big an web app is.
 - Saves user's last mode i.e. no matter if user refresh or switch off pc his/her mode is saved.
+
+
+Website live link https://dakshesh14.github.io/darkmode-toggler/
